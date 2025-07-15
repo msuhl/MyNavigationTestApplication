@@ -8,10 +8,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import com.example.mynavigationtestapplication.ui.navigation.navhosts.MainNavHost
-import com.example.mynavigationtestapplication.ui.navigation.navhosts.NavGraphRoute
 import com.example.mynavigationtestapplication.ui.theme.MyNavigationTestApplicationTheme
 
 class MainActivity : ComponentActivity() {
@@ -21,8 +19,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             val navController = rememberNavController()
             MainNavHost(
-                navController = navController,
-                startDestination = NavGraphRoute.FirstNavGraph
+                navHostController = navController,
             )
         }
     }

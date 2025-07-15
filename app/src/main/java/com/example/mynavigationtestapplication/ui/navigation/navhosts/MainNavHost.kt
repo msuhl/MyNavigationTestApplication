@@ -1,28 +1,35 @@
 package com.example.mynavigationtestapplication.ui.navigation.navhosts
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.mynavigationtestapplication.ui.Home
+import com.example.mynavigationtestapplication.ui.navigation.Appdestination
+import com.example.mynavigationtestapplication.ui.navigation.NavGraphRoute
 
 @Composable
 fun MainNavHost(
-    navController: NavHostController,
-    startDestination: NavGraphRoute,
-    modifier:Modifier = Modifier
+    navHostController: NavHostController,
 ) {
     NavHost(
-        navController = navController,
-        startDestination = startDestination,
-        modifier = Modifier.then(modifier),
+        navController = navHostController,
+        startDestination = Appdestination.Home,
     ) {
-        composable<NavGraphRoute.FirstNavGraph> {
-            FirstNavHost(rootNavController = navController)
+        composable<Appdestination.Home> {
+            Home(
+                onClickGoToFirstFirstScreen = { navHostController.navigate(Appdestination.FirstNavDestination.FirstAppdestinationFirst) },
+                onClickGoToFirstSecondScreen = { navHostController.navigate(Appdestination.FirstNavDestination.FirstAppdestinationSecond) },
+                onClickGoToSecondFirstScreen = { navHostController.navigate(Appdestination.SecondNavGraph) },
+                onClickGoToSecondSecondScreen = { navHostController.navigate(Appdestination.SecondNavDestination.SecondAppdestinationSecond) }
+            )
         }
-
-        composable<NavGraphRoute.SecondNavGraph> {
-            SecondNavHost(rootNavController = navController)
-        }
+        firstGraph(navHostController = navHostController)
+        secondGraph(navHostController = navHostController)
     }
 }
+
+
+
+
+

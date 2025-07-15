@@ -1,4 +1,4 @@
-package com.example.mynavigationtestapplication.ui.navigation.navhosts
+package com.example.mynavigationtestapplication.ui.navigation
 
 import kotlinx.serialization.Serializable
 
@@ -7,5 +7,5 @@ sealed interface NavGraphRoute {
     data object FirstNavGraph : NavGraphRoute
 
     @Serializable
-    data object SecondNavGraph : NavGraphRoute
+    data class SecondNavGraph(val screenRoute:String? = null) : NavGraphRoute
 }

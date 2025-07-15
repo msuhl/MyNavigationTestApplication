@@ -1,28 +1,23 @@
 package com.example.mynavigationtestapplication.ui.navigation.navhosts
 
-import androidx.compose.runtime.Composable
+import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
-import com.example.mynavigationtestapplication.ui.navigation.Screen
+import androidx.navigation.navigation
+import com.example.mynavigationtestapplication.ui.navigation.Appdestination
 import com.example.mynavigationtestapplication.ui.secondscreen.SecondScreenFirst
 import com.example.mynavigationtestapplication.ui.secondscreen.SecondScreenSecond
 
-@Composable
-fun SecondNavHost(
-    rootNavController: NavHostController
-) {
-    val frontPageNavController = rememberNavController()
-
-    NavHost(
-        navController = frontPageNavController,
-        startDestination = Screen.SecondScreenFirst,
+fun NavGraphBuilder.secondGraph(navHostController: NavHostController) {
+    navigation<Appdestination.SecondNavGraph>(
+        startDestination = Appdestination.SecondNavDestination.SecondAppdestinationFirst
     ) {
-        composable<Screen.SecondScreenFirst> {
+        // This is the first screen in the second navigation graph
+        composable<Appdestination.SecondNavDestination.SecondAppdestinationFirst> {
             SecondScreenFirst()
         }
-        composable<Screen.SecondScreenSecond> {
+
+        composable<Appdestination.SecondNavDestination.SecondAppdestinationSecond> {
             SecondScreenSecond()
         }
     }

@@ -18,7 +18,7 @@ fun SecondScreenSecond() {
         modifier = Modifier.fillMaxSize()
     ) {
         Text(
-            text = "Welcome to the First second Screen!",
+            text = "Welcome to the Second second Screen 2!",
             style = typography.headlineSmall,
             modifier = Modifier.padding(16.dp)
         )

@@ -1,30 +1,25 @@
 package com.example.mynavigationtestapplication.ui.navigation.navhosts
 
-import androidx.compose.runtime.Composable
+import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navigation
 import com.example.mynavigationtestapplication.ui.firstscreen.FirstScreenFirst
 import com.example.mynavigationtestapplication.ui.firstscreen.FirstScreenSecond
-import com.example.mynavigationtestapplication.ui.navigation.Screen
+import com.example.mynavigationtestapplication.ui.navigation.Appdestination
 
-@Composable
-fun FirstNavHost(rootNavController: NavHostController) {
-    val navController = rememberNavController()
-
-    NavHost(
-        navController = navController,
-        startDestination = Screen.FirstScreenFirst,
+fun NavGraphBuilder.firstGraph(navHostController: NavHostController) {
+    navigation<Appdestination.FirstNavGraph>(
+        startDestination = Appdestination.FirstNavDestination.FirstAppdestinationFirst
     ) {
-        composable<Screen.FirstScreenFirst> {
+        composable<Appdestination.FirstNavDestination.FirstAppdestinationFirst> {
             FirstScreenFirst(
-                onClickGoToFirstSecondScreen = { navController.navigate(Screen.FirstScreenSecond) },
-                onClickGoToSecondFirstScreen = { rootNavController.navigate(NavGraphRoute.SecondNavGraph) },
-                onClickGoToSecondSecondScreen = { navController.navigate(Screen.FirstScreenSecond) }
+                onClickGoToFirstSecondScreen = { navHostController.navigate(Appdestination.FirstNavDestination.FirstAppdestinationSecond) },
+                onClickGoToSecondFirstScreen = { navHostController.navigate(Appdestination.SecondNavGraph) },
+                onClickGoToSecondSecondScreen = { navHostController.navigate(Appdestination.SecondNavDestination.SecondAppdestinationSecond) }
             )
         }
-        composable<Screen.FirstScreenSecond> {
+        composable<Appdestination.FirstNavDestination.FirstAppdestinationSecond> {
             FirstScreenSecond()
         }
     }
