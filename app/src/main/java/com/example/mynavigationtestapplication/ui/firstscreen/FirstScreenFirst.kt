@@ -15,9 +15,11 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun FirstScreenFirst(
     onClickGoToFirstSecondScreen: () -> Unit = { /* Default no-op */ },
-    onClickGoToSecondFirstScreen: () -> Unit = { /* Default no-op */ },
+    onClickGoToSecondGraph: () -> Unit = { /* Default no-op */ },
+    onClickGoFirstThirdScreen: () -> Unit = { /* Default no-op */ },
     onClickGoToSecondSecondScreen: () -> Unit = { /* Default no-op */ },
-) {
+
+    ) {
     // This is a placeholder for the first screen of the application.
     // You can add your UI components here.
     // For example, you might want to display a greeting or a welcome message.
@@ -27,7 +29,7 @@ fun FirstScreenFirst(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "Welcome to the First first Screen!",
+            text = "Welcome to the First Graph, first Screen!",
             style = typography.headlineSmall,
             modifier = Modifier.padding(16.dp)
         )
@@ -43,10 +45,20 @@ fun FirstScreenFirst(
         }
         Button(
             modifier = Modifier.padding(8.dp),
-            onClick = onClickGoToSecondFirstScreen
+            onClick = onClickGoToSecondGraph
         ) {
             Text(
                 text = "Go to Second first Screen",
+                style = typography.bodyLarge,
+                modifier = Modifier.padding(16.dp)
+            )
+        }
+        Button(
+            modifier = Modifier.padding(8.dp),
+            onClick = onClickGoFirstThirdScreen
+        ) {
+            Text(
+                text = "Go to First third Screen",
                 style = typography.bodyLarge,
                 modifier = Modifier.padding(16.dp)
             )
@@ -61,5 +73,6 @@ fun FirstScreenFirst(
                 modifier = Modifier.padding(16.dp)
             )
         }
+
     }
 }

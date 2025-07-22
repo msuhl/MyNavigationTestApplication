@@ -5,8 +5,10 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.mynavigationtestapplication.ui.Home
-import com.example.mynavigationtestapplication.ui.navigation.Appdestination
-import com.example.mynavigationtestapplication.ui.navigation.NavGraphRoute
+import com.example.mynavigationtestapplication.ui.navigation.FirstGraph
+import com.example.mynavigationtestapplication.ui.navigation.HomeGraph
+import com.example.mynavigationtestapplication.ui.navigation.Screen
+import com.example.mynavigationtestapplication.ui.navigation.SecondGraph
 
 @Composable
 fun MainNavHost(
@@ -14,16 +16,16 @@ fun MainNavHost(
 ) {
     NavHost(
         navController = navHostController,
-        startDestination = Appdestination.Home,
+        startDestination = FirstGraph,
     ) {
-        composable<Appdestination.Home> {
-            Home(
-                onClickGoToFirstFirstScreen = { navHostController.navigate(Appdestination.FirstNavDestination.FirstAppdestinationFirst) },
-                onClickGoToFirstSecondScreen = { navHostController.navigate(Appdestination.FirstNavDestination.FirstAppdestinationSecond) },
-                onClickGoToSecondFirstScreen = { navHostController.navigate(Appdestination.SecondNavGraph) },
-                onClickGoToSecondSecondScreen = { navHostController.navigate(Appdestination.SecondNavDestination.SecondAppdestinationSecond) }
-            )
-        }
+//        composable<HomeGraph> {
+//            Home(
+//                onClickGoToFirstFirstScreen = { navHostController.navigate(Screen.FirstScreenFirst) },
+//                onClickGoToFirstSecondScreen = { navHostController.navigate(Screen.FirstScreenSecond) },
+//                onClickGoToSecondFirstScreen = { navHostController.navigate(SecondGraph) },
+//                onClickGoToSecondSecondScreen = { navHostController.navigate(Screen.SecondScreenSecond) }
+//            )
+//        }
         firstGraph(navHostController = navHostController)
         secondGraph(navHostController = navHostController)
     }

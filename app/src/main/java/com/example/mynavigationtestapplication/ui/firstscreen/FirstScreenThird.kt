@@ -4,7 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MaterialTheme.typography
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -13,9 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun FirstScreenSecond(
-    onClickGoToFirstThirdScreen: () -> Unit = { /* Default no-op */ },
-    ) {
+fun FirstScreenThird() {
     // This is a placeholder for the first screen of the application.
     // You can add your UI components here.
     // For example, you might want to display a greeting or a welcome message.
@@ -24,26 +22,10 @@ fun FirstScreenSecond(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Column(
-            modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Text(
-                text = "Welcome to the First Graph, Second Screen!",
-                style = typography.headlineSmall,
-                modifier = Modifier.padding(16.dp)
-            )
-            Button(
-                modifier = Modifier.padding(8.dp),
-                onClick = onClickGoToFirstThirdScreen
-            ) {
-                Text(
-                    text = "Go to First third Screen",
-                    style = typography.bodyLarge,
-                    modifier = Modifier.padding(16.dp)
-                )
-            }
-        }
+        Text(
+            text = "Welcome to the First Graph, Third Screen!",
+            style = typography.headlineSmall,
+            modifier = Modifier.padding(16.dp)
+        )
     }
 }

@@ -4,21 +4,31 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
-import com.example.mynavigationtestapplication.ui.navigation.Appdestination
+import com.example.mynavigationtestapplication.ui.firstscreen.FirstScreenThird
+import com.example.mynavigationtestapplication.ui.navigation.Screen
+import com.example.mynavigationtestapplication.ui.navigation.SecondGraph
 import com.example.mynavigationtestapplication.ui.secondscreen.SecondScreenFirst
 import com.example.mynavigationtestapplication.ui.secondscreen.SecondScreenSecond
 
 fun NavGraphBuilder.secondGraph(navHostController: NavHostController) {
-    navigation<Appdestination.SecondNavGraph>(
-        startDestination = Appdestination.SecondNavDestination.SecondAppdestinationFirst
+    navigation<SecondGraph>(
+        startDestination = Screen.SecondScreenFirst
     ) {
         // This is the first screen in the second navigation graph
-        composable<Appdestination.SecondNavDestination.SecondAppdestinationFirst> {
-            SecondScreenFirst()
+        composable<Screen.SecondScreenFirst> {
+            SecondScreenFirst(
+                onClickGoToSecondSecondScreen = { navHostController.navigate(Screen.SecondScreenSecond) },
+                )
         }
 
-        composable<Appdestination.SecondNavDestination.SecondAppdestinationSecond> {
-            SecondScreenSecond()
+        composable<Screen.SecondScreenSecond> {
+            SecondScreenSecond(
+                onClickGoToFirstThirdScreen = { navHostController.navigate(Screen.FirstScreenThird) },
+
+                )
+        }
+        composable<Screen.FirstScreenThird> {
+            FirstScreenThird()
         }
     }
 }
